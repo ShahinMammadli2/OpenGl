@@ -1,0 +1,76 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\OpenGl programming\\Sandbox\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\parallax_mapping.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:parallax_mapping.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\parallax_mapping.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:parallax_mapping.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "D:\\OpenGl programming\\Sandbox\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAH8BAAAAAAAAAAAcwDEBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-24T18:06:48.66Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "parallax_mapping.fs",
+              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\parallax_mapping.fs",
+              "RelativeDocumentMoniker": "parallax_mapping.fs",
+              "ToolTip": "D:\\OpenGl programming\\Sandbox\\parallax_mapping.fs",
+              "RelativeToolTip": "parallax_mapping.fs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-05T20:06:17.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "parallax_mapping.vs",
+              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\parallax_mapping.vs",
+              "RelativeDocumentMoniker": "parallax_mapping.vs",
+              "ToolTip": "D:\\OpenGl programming\\Sandbox\\parallax_mapping.vs",
+              "RelativeToolTip": "parallax_mapping.vs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-05T19:56:50.776Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
