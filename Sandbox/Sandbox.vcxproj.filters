@@ -39,12 +39,13 @@
     <None Include="basic.fs" />
     <None Include="reflect.fs" />
     <None Include="reflect.vs" />
-    <None Include="flagr.vs">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="flagr.fs" />
     <None Include="parallax_mapping.vs" />
     <None Include="parallax_mapping.fs" />
+    <None Include="point_shadows.vs" />
+    <None Include="point_shadow_depth.vs" />
+    <None Include="point_shadow_depth.fs" />
+    <None Include="point_shadow_depth.gs" />
+    <None Include="point_shadows.fs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader_s.h">

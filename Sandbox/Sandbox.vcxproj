@@ -139,11 +139,14 @@
   <ItemGroup>
     <None Include="basic.fs" />
     <None Include="basic.vs" />
-    <None Include="flagr.fs" />
-    <None Include="flagr.vs" />
     <None Include="geometry.gs" />
     <None Include="parallax_mapping.fs" />
     <None Include="parallax_mapping.vs" />
+    <None Include="point_shadows.fs" />
+    <None Include="point_shadows.vs" />
+    <None Include="point_shadow_depth.fs" />
+    <None Include="point_shadow_depth.gs" />
+    <None Include="point_shadow_depth.vs" />
     <None Include="reflect.fs" />
     <None Include="reflect.vs" />
     <None Include="shader.fs" />
