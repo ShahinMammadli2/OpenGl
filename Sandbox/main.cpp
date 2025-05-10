@@ -336,7 +336,7 @@ int main()
         pointShadow.setFloat("far_plane", far_plane);
         pointShadow.setVec3("lightPos", lightPos2);
         pointShadow.setInt("shadows", shadows);
-        pointShadow.setVec3("lightColor", glm::vec3(5.0f));   // white, a bit bright
+        pointShadow.setVec3("lightColor", glm::vec3(200.0f));   // white, a bit bright
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         glActiveTexture(GL_TEXTURE1);
@@ -361,6 +361,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
         
         reflectShader.use();
         glm::mat4 reflectModel = glm::mat4(1.0f);
@@ -416,14 +417,16 @@ int main()
         glDepthFunc(GL_LESS);
         
         
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         hdrShader.use();
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, colorBuffer);
+        hdrShader.setInt("hdr", hdr);
+        hdrShader.setFloat("exposure", exposure);
         glBindVertexArray(screenVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 6);
         glBindVertexArray(0);
         std::cout << "hdr: " << (hdr ? "on" : "off") << "| exposure: " << exposure << std::endl;
 

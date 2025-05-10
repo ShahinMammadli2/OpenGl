@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\point_shadows.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
-      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:point_shadows.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\hdr.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:hdr.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\point_shadows.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:point_shadows.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\hdr.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "D:\\OpenGl programming\\Sandbox\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAswBYBAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAADkBAAAAAAAAAAAIwE8BAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-24T18:06:48.66Z",
               "IsPinned": true,
@@ -48,7 +48,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "point_shadows.fs",
               "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\point_shadows.fs",
               "RelativeDocumentMoniker": "point_shadows.fs",
@@ -56,8 +56,7 @@
               "RelativeToolTip": "point_shadows.fs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-05T21:21:26.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T21:21:26.286Z"
             },
             {
               "$type": "Document",
@@ -69,12 +68,11 @@
               "RelativeToolTip": "point_shadows.vs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-10T13:43:34.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T13:43:34.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "hdr.fs",
               "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\hdr.fs",
               "RelativeDocumentMoniker": "hdr.fs",
@@ -95,8 +93,7 @@
               "RelativeToolTip": "hdr.vs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-05T21:04:31.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T21:04:31.869Z"
             }
           ]
         }
