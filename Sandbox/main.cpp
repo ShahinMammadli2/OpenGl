@@ -27,6 +27,9 @@ void renderPlane();
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 bool shadows = true;
+bool hdr = true;
+bool hdrKeyPressed = false;
+float exposure = 1.0f;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 float lastX = (float)SCR_WIDTH / 2.0;
@@ -99,6 +102,7 @@ int main()
     Shader reflectShader("reflect.vs", "reflect.fs");
     Shader parallax("parallax_mapping.vs", "parallax_mapping.fs");
     Shader simpleDepthShader("point_shadow_depth.vs", "point_shadow_depth.fs", "point_shadow_depth.gs");
+    Shader hdrShader("hdr.vs", "hdr.fs");
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
 
@@ -160,6 +164,31 @@ int main()
          1.0f, -1.0f,  1.0f
     };
 
+    // once, after you create the other VAOs
+    unsigned int screenVAO, screenVBO;
+    float screenVertices[] = {
+        // positions   // texCoords
+        -1.0f,  1.0f,   0.0f, 1.0f,
+        -1.0f, -1.0f,   0.0f, 0.0f,
+         1.0f, -1.0f,   1.0f, 0.0f,
+
+        -1.0f,  1.0f,   0.0f, 1.0f,
+         1.0f, -1.0f,   1.0f, 0.0f,
+         1.0f,  1.0f,   1.0f, 1.0f
+    };
+    glGenVertexArrays(1, &screenVAO);
+    glGenBuffers(1, &screenVBO);
+    glBindVertexArray(screenVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, screenVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(screenVertices), screenVertices, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float),
+        (void*)(2 * sizeof(float)));
+    glBindVertexArray(0);
+
+
     unsigned int skyVAO, skyVBO;
     glGenVertexArrays(1, &skyVAO);
     glGenBuffers(1, &skyVBO);
@@ -169,8 +198,33 @@ int main()
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
+    // HDR
+    // --------------------------------
+    // floating point framebuffer
+    unsigned int hdrFBO;
+    glGenFramebuffers(1, &hdrFBO);
+    // floating point color buffer
+    unsigned int colorBuffer;
+    glGenTextures(1, &colorBuffer);
+    glBindTexture(GL_TEXTURE_2D, colorBuffer);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, SCR_WIDTH, SCR_HEIGHT, 0, GL_RGBA, GL_FLOAT, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // renderbuffer
+    unsigned int rboDepth;
+    glGenRenderbuffers(1, &rboDepth);
+    glBindRenderbuffer(GL_RENDERBUFFER, rboDepth);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, SCR_WIDTH, SCR_HEIGHT);
+    // attach buffers
+    glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorBuffer, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rboDepth);
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        std::cout << "Frammebuffer not complete!" << std::endl;
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    // configuring the depthMap
+    // depthMap configuration for light shadows
+    //------------------------------------------
     const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
     unsigned int depthMapFBO;
     glGenFramebuffers(1, &depthMapFBO);
@@ -192,6 +246,7 @@ int main()
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER,0);
 
+    // textures 
     unsigned int cubemapTexture = loadCubemap(faces);
 
     unsigned int toyboxTexture = loadTexture("D:/OpenGl programming/OpenGl_FirstProject/resources/textures/toybox/wood.png", false);
@@ -199,22 +254,29 @@ int main()
     unsigned int toybox_d = loadTexture("D:/OpenGl programming/OpenGl_FirstProject/resources/textures/toybox/toy_box_disp.png", false);
     unsigned int floorTexture = loadTexture("D:/OpenGl programming/OpenGl_FirstProject/wood.png", false);
 
+
+    // shader confugiration 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
 
     reflectShader.use();
     reflectShader.setInt("skybox", 0);
+
     parallax.use();
     parallax.setInt("diffuseMap", 0);
     parallax.setInt("normalMap", 1);
     parallax.setInt("depthMap", 2);
+
     pointShadow.use();
     pointShadow.setInt("diffuseTexture", 0);
     pointShadow.setInt("depthMap", 1);
+
+    hdrShader.use();
+    hdrShader.setInt("hdrBuffer", 0);
     // lighting info
     // -------------
     glm::vec3 lightPos(3.2, 4.0, 4.2);
-    glm::vec3 lightPos2(0.0, 1.0, 0.0);
+    glm::vec3 lightPos2(1.0, 2.0, 0.0);
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -255,13 +317,14 @@ int main()
         simpleDepthShader.setVec3("lightPos", lightPos2);
         renderSceneDepth(simpleDepthShader);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
+        
         // render scene as normal
         // ------
         glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+        glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        pointShadow.use();
 
+        pointShadow.use();
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
         glm::mat4 model = glm::mat4(1.0f);
@@ -273,11 +336,13 @@ int main()
         pointShadow.setFloat("far_plane", far_plane);
         pointShadow.setVec3("lightPos", lightPos2);
         pointShadow.setInt("shadows", shadows);
-        renderPyramid();
+        pointShadow.setVec3("lightColor", glm::vec3(5.0f));   // white, a bit bright
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
+        renderPyramid();
+        
 
 
         glm::mat4 upsideDownModel = glm::mat4(1.0f);
@@ -296,7 +361,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
-
+        
         reflectShader.use();
         glm::mat4 reflectModel = glm::mat4(1.0f);
         reflectModel = glm::translate(reflectModel, glm::vec3(1.0f, 0.0f, 2.0f));
@@ -334,7 +399,8 @@ int main()
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, toybox_d);
         renderQuad();
-
+        
+        
         glBindVertexArray(skyVAO);
         glDepthFunc(GL_LEQUAL);
         skyboxShader.use();
@@ -342,11 +408,24 @@ int main()
         skyboxShader.setMat4("view", view);
         skyboxShader.setMat4("projection", projection);
 
+        
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS);
+        
+        
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        hdrShader.use();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, colorBuffer);
+        glBindVertexArray(screenVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+        std::cout << "hdr: " << (hdr ? "on" : "off") << "| exposure: " << exposure << std::endl;
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -705,6 +784,28 @@ void processInput(GLFWwindow* window)
             heightScale += 0.0005f;
         else
             heightScale = 1.0f;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !hdrKeyPressed)
+    {
+        hdr = !hdr;
+        hdrKeyPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
+    {
+        hdrKeyPressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
+    {
+        if (exposure > 0.0f)
+            exposure -= 0.001f;
+        else
+            exposure = 0.0f;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+    {
+        exposure += 0.001f;
     }
 }
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

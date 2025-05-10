@@ -140,6 +140,8 @@
     <None Include="basic.fs" />
     <None Include="basic.vs" />
     <None Include="geometry.gs" />
+    <None Include="hdr.fs" />
+    <None Include="hdr.vs" />
     <None Include="parallax_mapping.fs" />
     <None Include="parallax_mapping.vs" />
     <None Include="point_shadows.fs" />
