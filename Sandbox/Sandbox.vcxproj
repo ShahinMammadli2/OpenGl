@@ -139,9 +139,14 @@
   <ItemGroup>
     <None Include="basic.fs" />
     <None Include="basic.vs" />
+    <None Include="bloom.fs" />
+    <None Include="bloom.vs" />
+    <None Include="blur.fs" />
+    <None Include="blur.vs" />
     <None Include="geometry.gs" />
     <None Include="hdr.fs" />
     <None Include="hdr.vs" />
+    <None Include="light_box.fs" />
     <None Include="parallax_mapping.fs" />
     <None Include="parallax_mapping.vs" />
     <None Include="point_shadows.fs" />

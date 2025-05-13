@@ -1,5 +1,4 @@
 #version 330 core
-
 out vec4 FragColor;
 
 in VS_OUT {
@@ -18,6 +17,7 @@ uniform float far_plane;
 uniform bool shadows;
 
 uniform vec3 lightColor;
+
 
 vec3 sampleOffsetDirections[20] = vec3[]
 (
@@ -78,5 +78,6 @@ void main()
     // final
     vec3 lighting = (ambient + (1.0 - shadowVal) * (diffuse + specular)) * color;
     lighting += result;
+
     FragColor = vec4(lighting, 1.0);
 }

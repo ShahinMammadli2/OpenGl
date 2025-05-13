@@ -48,6 +48,11 @@
     <None Include="point_shadows.fs" />
     <None Include="hdr.vs" />
     <None Include="hdr.fs" />
+    <None Include="light_box.fs" />
+    <None Include="bloom.fs" />
+    <None Include="bloom.vs" />
+    <None Include="blur.fs" />
+    <None Include="blur.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader_s.h">
