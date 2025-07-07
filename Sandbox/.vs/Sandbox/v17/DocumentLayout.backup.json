@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\OpenGl programming\\Sandbox\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\blur.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
-      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:blur.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\PBR.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:PBR.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\PBR.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:PBR.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\hdr.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
-      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:hdr.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|D:\\OpenGl programming\\Sandbox\\bloom.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
-      "RelativeMoniker": "D:0:0:{E89B31CF-F234-4461-A61E-D7CA0F1A64BF}|Sandbox.vcxproj|solutionrelative:bloom.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "D:\\OpenGl programming\\Sandbox\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAACwBAAAAAAAAAADwv/wBAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAJIBAAAAAAAAAAAIwJMBAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-24T18:06:48.66Z",
               "IsPinned": true,
@@ -44,41 +40,28 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PBR.fs",
+              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\PBR.fs",
+              "RelativeDocumentMoniker": "PBR.fs",
+              "ToolTip": "D:\\OpenGl programming\\Sandbox\\PBR.fs",
+              "RelativeToolTip": "PBR.fs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-06T11:12:33.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "blur.fs",
-              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\blur.fs",
-              "RelativeDocumentMoniker": "blur.fs",
-              "ToolTip": "D:\\OpenGl programming\\Sandbox\\blur.fs",
-              "RelativeToolTip": "blur.fs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Title": "PBR.vs",
+              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\PBR.vs",
+              "RelativeDocumentMoniker": "PBR.vs",
+              "ToolTip": "D:\\OpenGl programming\\Sandbox\\PBR.vs",
+              "RelativeToolTip": "PBR.vs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-13T21:41:33.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "bloom.fs",
-              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\bloom.fs",
-              "RelativeDocumentMoniker": "bloom.fs",
-              "ToolTip": "D:\\OpenGl programming\\Sandbox\\bloom.fs",
-              "RelativeToolTip": "bloom.fs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-13T21:41:23.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "hdr.fs",
-              "DocumentMoniker": "D:\\OpenGl programming\\Sandbox\\hdr.fs",
-              "RelativeDocumentMoniker": "hdr.fs",
-              "ToolTip": "D:\\OpenGl programming\\Sandbox\\hdr.fs",
-              "RelativeToolTip": "hdr.fs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-13T17:42:38.684Z",
+              "WhenOpened": "2025-07-06T11:00:56.072Z",
               "EditorCaption": ""
             }
           ]

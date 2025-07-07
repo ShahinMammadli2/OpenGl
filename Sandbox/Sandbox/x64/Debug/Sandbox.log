@@ -1,3 +1,3 @@
 ﻿  main.cpp
-D:\OpenGl programming\Sandbox\main.cpp(495,36): warning C4018: '<': signed/unsigned mismatch
+D:\OpenGl programming\Sandbox\main.cpp(552,36): warning C4018: '<': signed/unsigned mismatch
   Sandbox.vcxproj -> D:\OpenGl programming\Sandbox\x64\Debug\Sandbox.exe

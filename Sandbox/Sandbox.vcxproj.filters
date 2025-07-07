@@ -53,6 +53,8 @@
     <None Include="bloom.vs" />
     <None Include="blur.fs" />
     <None Include="blur.vs" />
+    <None Include="PBR.vs" />
+    <None Include="PBR.fs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader_s.h">
